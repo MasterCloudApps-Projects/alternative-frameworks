@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">   
+</head>
+<body>
+	<h1>Posts</h1>
+    {#if posts}
+	{#for p in posts}
+	<a href="post/{p.id}">{p.user} {p.title}</a><br>
+	{/for}
+	{#else}
+	<p>No posts yet.</p>
+	{/if}
+
+	<br>
+	<a href="new_post.html">New Post</a>
+</body>
+</html>
