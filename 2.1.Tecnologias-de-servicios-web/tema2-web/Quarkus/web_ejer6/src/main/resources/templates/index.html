@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">   
+</head>
+<body>
+
+	{#if welcome}
+	<h1>Welcome!</h1>
+	{/if}
+
+	<h1>Posts</h1>
+    {#if posts}
+	{#for p in posts}
+	<a href="post/{p.id}">{p.user} {p.title}</a><br>
+	{/for}
+	{#else}
+	<p>No posts yet.</p>
+	{/if}
+
+	<br>
+	<a href="post/new">New Post</a>
+</body>
+</html>

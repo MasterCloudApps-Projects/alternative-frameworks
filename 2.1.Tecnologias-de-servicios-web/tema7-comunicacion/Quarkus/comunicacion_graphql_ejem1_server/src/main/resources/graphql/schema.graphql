@@ -1,0 +1,30 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"Mutation root"
+type Mutation {
+  createPost(post: PostInput): Post
+  deletePost(id: BigInteger!): Post
+  replacePost(id: BigInteger!, post: PostInput): Post
+}
+
+type Post {
+  id: BigInteger!
+  text: String
+  title: String
+  user: String
+}
+
+"Query root"
+type Query {
+  post(id: BigInteger!): Post
+  posts: [Post]
+}
+
+input PostInput {
+  text: String
+  title: String
+  user: String
+}

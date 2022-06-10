@@ -1,0 +1,17 @@
+config:
+    target: "http://127.0.0.1:8080"
+    phases:
+      - duration: 20
+        arrivalRate: 10
+    payload:
+      path: "items.csv"
+      fields:
+        - "description"
+        - "checked"
+scenarios:
+    - flow:
+        - post:
+            url: "/items/"
+            json:
+              description: "{{ description }}"
+              checked: "{{ checked }}"

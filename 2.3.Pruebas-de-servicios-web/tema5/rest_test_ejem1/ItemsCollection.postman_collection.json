@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "2a6dbd0c-5aea-4707-90e0-f5b8e6563cbc",
+		"name": "ItemsCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dce638ff-9a3a-48df-b603-9a76531c9524",
+						"exec": [
+							"pm.test(\"Status code is 201 - Created\", function () { ",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Item was successfully created with all params\", function () { ",
+							"    pm.response.to.have.jsonBody(\"description\", \"Leche\");",
+							"    pm.response.to.have.jsonBody(\"checked\", false);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"description\" : \"Leche\", \n\t\"checked\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/items/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all Items",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3465e98e-c7db-4bc3-b46c-b140071bafa3",
+						"exec": [
+							"pm.test(\"Status code is 200 - OK\", function () { ",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Return a list of items\", function () { ",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/items/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "057dcc1d-450d-45fd-b4d2-c9ad00428a60",
+						"exec": [
+							"pm.test(\"Status code is 200 - OK\", function () { ",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Update the item\", function () { ",
+							"    pm.response.to.have.jsonBody(\"checked\", true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"description\" : \"Leche\", \n\t\"checked\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/items/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbbb22c1-ed20-4b39-aa8a-b92369f95ca2",
+						"exec": [
+							"pm.test(\"Status code is 200 - OK\", function () { ",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/items/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"items",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

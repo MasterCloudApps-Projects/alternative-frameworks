@@ -1,0 +1,20 @@
+<html>
+<head>
+    <meta charset="UTF-8">   
+</head>
+<body>
+	{#if bienvenida} 
+	<h1>Bienvenido</h1>
+	{/if}
+	
+	<h1>Tablón Anuncios</h1>
+	{#if anuncios} 
+	{#for a in anuncios}
+	<a href="/anuncio/{a.id}">{a.nombre} {a.asunto}</a><br>
+	{/for}
+	{/if}
+	
+	<br>
+	<a href="/anuncio/nuevo_form">Nuevo anuncio</a>
+</body>
+</html>

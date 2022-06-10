@@ -1,0 +1,27 @@
+{
+  "name": "comunicacion_graphql_ejem1_client",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main"
+  },
+  "dependencies": {
+    "@golevelup/nestjs-graphql-request": "^0.1.13",
+    "@nestjs/apollo": "^10.1.7",
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/graphql": "^10.1.7",
+    "@nestjs/platform-express": "^9.0.0",
+    "apollo-server-express": "^3.11.1",
+    "graphql": "^16.6.0"
+  }
+}

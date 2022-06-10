@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "11ada3b8-6a51-48eb-8d43-95a94f0d0c32",
+		"name": "JWT Bearer Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SIGN UP ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"email\": \"admin@quarkus.com\",\n    \"password\": \"pass\",\n    \"roles\": [\"USER\",\"ADMIN\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/auth/signup",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SIGN IN ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"pass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/auth/signin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/test/all",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"test",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST USER",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJncm91cHMiOlsiQURNSU4iLCJVU0VSIl0sInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjcwNjc3Mjk5LCJleHAiOjE3NTcwNzcyOTksImp0aSI6ImNlM2U4NmY2LWRiYzctNDQyMi05MTZmLTRjMTU5ODJlYWY4MyJ9.VNZW4X4UddnWgIeucUXrI13BB7LXwyycQ2zhlaxpdbkjBsjvycTTAS0kadiD1TlIaCzboJk7FpZn5URWqCR8zJCntk7g_ftz8alXViACFVZrjuRXqPgoGbr3gOB7LbP2S8Q6RFR6EFvBCsO4-3VL5MRvpW-oiPMWKLr_zJBbdr0M3oBcxj6psxXgyIzOkXjGwwRIsAWEcc2W6BLmDTDwzc1l9ak3jcfX3kiVE0A9e5kvo3YoMexhfd4viTeuhtLEDdM0k9af0eNtDUVA_gfDMsKF3ztO-mbDtij9sulk7OGJpM4FAipzSaAPSK3UCm6RU_urhrljQlDBysC5lwKSCg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/test/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"test",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST MOD",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJncm91cHMiOlsiQURNSU4iLCJVU0VSIl0sInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjcwNjc3Mjk5LCJleHAiOjE3NTcwNzcyOTksImp0aSI6ImNlM2U4NmY2LWRiYzctNDQyMi05MTZmLTRjMTU5ODJlYWY4MyJ9.VNZW4X4UddnWgIeucUXrI13BB7LXwyycQ2zhlaxpdbkjBsjvycTTAS0kadiD1TlIaCzboJk7FpZn5URWqCR8zJCntk7g_ftz8alXViACFVZrjuRXqPgoGbr3gOB7LbP2S8Q6RFR6EFvBCsO4-3VL5MRvpW-oiPMWKLr_zJBbdr0M3oBcxj6psxXgyIzOkXjGwwRIsAWEcc2W6BLmDTDwzc1l9ak3jcfX3kiVE0A9e5kvo3YoMexhfd4viTeuhtLEDdM0k9af0eNtDUVA_gfDMsKF3ztO-mbDtij9sulk7OGJpM4FAipzSaAPSK3UCm6RU_urhrljQlDBysC5lwKSCg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/test/mod",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"test",
+						"mod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST ADMIN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJncm91cHMiOlsiQURNSU4iLCJVU0VSIl0sInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjcwNjc3Mjk5LCJleHAiOjE3NTcwNzcyOTksImp0aSI6ImNlM2U4NmY2LWRiYzctNDQyMi05MTZmLTRjMTU5ODJlYWY4MyJ9.VNZW4X4UddnWgIeucUXrI13BB7LXwyycQ2zhlaxpdbkjBsjvycTTAS0kadiD1TlIaCzboJk7FpZn5URWqCR8zJCntk7g_ftz8alXViACFVZrjuRXqPgoGbr3gOB7LbP2S8Q6RFR6EFvBCsO4-3VL5MRvpW-oiPMWKLr_zJBbdr0M3oBcxj6psxXgyIzOkXjGwwRIsAWEcc2W6BLmDTDwzc1l9ak3jcfX3kiVE0A9e5kvo3YoMexhfd4viTeuhtLEDdM0k9af0eNtDUVA_gfDMsKF3ztO-mbDtij9sulk7OGJpM4FAipzSaAPSK3UCm6RU_urhrljQlDBysC5lwKSCg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/test/admin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"test",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST ADMIN INVALID TOKEN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJncm91cHMiOlsiQURNSU4iLCJVU0VSIl0sInByZWZlcnJlZF91c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjcwNjc3Mjk5LCJleHAiOjE3NTcwNzcyOTksImp0aSI6ImNlM2U4NmY2LWRiYzctNDQyMi05MTZmLTRjMTU5ODJlYWY4MyJ9.VNZW4X4UddnWgIeucUXrI13BB7LXwyycQ2zhlaxpdbkjBsjvycTTAS0kadiD1TlIaCzboJk7FpZn5URWqCR8zJCntk7g_ftz8alXViACFVZrjuRXqPgoGbr3gOB7LbP2S8Q6RFR6EFvBCsO4-3VL5MRvpW-oiPMWKLr_zJBbdr0M3oBcxj6psxXgyIzOkXjGwwRIsAWEcc2W6BLmDTDwzc1l9ak3jcfX3kiVE0A9e5kvo3YoMexhfd4viTeuhtLEDdM0k9af0eNtDUVA_gfDMsKF3ztO-mbDtij9sulk7OGJpM4FAipzSaAPSK3UCm6RU_urhrljQlDBysC5lwKSC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/test/admin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"test",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8080",
+			"type": "default"
+		}
+	]
+}

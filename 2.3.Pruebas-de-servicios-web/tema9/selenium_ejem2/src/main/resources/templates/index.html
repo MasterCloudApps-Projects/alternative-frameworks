@@ -1,0 +1,20 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<h1>Message forum</h1>
+	<form id="form" action="/" method="post">
+		Title: <input id='title-input' type='text' name='title' />
+		Body: <input id='body-input' type='text' name='body' /> 
+		<input id='submit' type='submit' value='New' />
+	</form>
+	{#if messages} 
+	<div id="messages">
+	{#for m in messages}
+	<p>Message: <b>Title:</b> <span id='title'>{m.title}</span> <b>Description:</b> <span id='body'>{m.body}</span><br>
+	{/for}
+	</div>
+	{/if}
+</body>
+</html>

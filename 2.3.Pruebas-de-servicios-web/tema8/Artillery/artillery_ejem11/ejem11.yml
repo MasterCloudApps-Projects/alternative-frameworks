@@ -1,0 +1,36 @@
+config:
+    plugins:
+      expect: {}
+    target: "http://127.0.0.1:8080"
+    phases:
+      - duration: 1
+        arrivalRate: 1
+    payload:
+      path: "items.csv"
+      fields:
+        - "description"
+        - "checked"
+scenarios:
+    - flow:
+        - post:
+            url: "/items/"
+            json:
+              description: "{{ description }}"
+              checked: "{{ checked }}"
+            capture: 
+              json: "$.id"
+              as: "id"
+            expect:
+              - statusCode: 201
+              - contentType: json
+        - get:
+            url: "/items/{{ id }}"
+            capture:
+            - json: "$.description"
+              as: description_created
+            expect:
+              - statusCode: 200
+              - contentType: json
+              - equals:
+                  - "{{ description_created }}"
+                  - "{{ description }}"

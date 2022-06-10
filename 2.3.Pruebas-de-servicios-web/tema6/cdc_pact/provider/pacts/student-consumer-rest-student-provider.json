@@ -1,0 +1,176 @@
+{
+  "consumer": {
+    "name": "student-consumer-rest"
+  },
+  "interactions": [
+    {
+      "description": "get all students when no student exists",
+      "providerStates": [
+        {
+          "name": "No students exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/students/"
+      },
+      "response": {
+        "body": [
+
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "get student with ID 1",
+      "providerStates": [
+        {
+          "name": "Student 1 exists"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/students/1"
+      },
+      "response": {
+        "body": {
+          "email": "some.email@sngular.com",
+          "id": "1",
+          "name": "Fake name",
+          "studentNumber": 23
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.studentNumber": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "get all students",
+      "providerStates": [
+        {
+          "name": "Students exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/students/"
+      },
+      "response": {
+        "body": [
+          {
+            "email": "another.email@sngular.com",
+            "id": "2",
+            "name": "Another fake name",
+            "studentNumber": 24
+          },
+          {
+            "email": "another.email@sngular.com",
+            "id": "2",
+            "name": "Another fake name",
+            "studentNumber": 24
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 2
+                }
+              ]
+            },
+            "$[*].email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].studentNumber": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.2.10"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "student-provider"
+  }
+}

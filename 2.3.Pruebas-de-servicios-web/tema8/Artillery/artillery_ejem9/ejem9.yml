@@ -1,0 +1,17 @@
+config:
+  target: "ws://localhost:8080/chat"
+  processor: "./addTimeStamp.js"
+  phases:
+    - duration: 20
+      arrivalRate: 2
+scenarios:
+  - engine: "ws"
+    flow:
+      - loop:
+        - function: "addTimeStamp"
+        - send: 
+            message: "Hi everybody"
+            timeStamp: "{{ timeStamp }}"
+        - think: 1
+        count: 100
+    
